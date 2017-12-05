@@ -11,7 +11,7 @@
   <artifactId>springMVCdemo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>springMVCdemo Maven Webapp</name>
+  <name>springMVCdemo</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
