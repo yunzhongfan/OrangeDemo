@@ -23,14 +23,14 @@ import org.springframework.web.servlet.ModelAndView;
  */
 
 @Controller
-@RequestMapping(path = "/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(path = "/user")
 public class UserController {
 
 	static {
 		System.out.println("springMVC启动了！");
 	}
 
-	@RequestMapping(path = "/user/*/hello")
+	@RequestMapping(path = "/*/hello")
 	public String hello() {
 		return "hello";
 	}
@@ -38,7 +38,7 @@ public class UserController {
 	@RequestMapping("/{userId}")
 	public ModelAndView showDetail(@PathVariable("userId") String userId) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/showDetail");
+		mav.setViewName("user/hello");
 		// mav.addObject("user", userService.getUserById(userId));
 		return mav;
 	}
