@@ -8,9 +8,13 @@
 */
 package com.springBoot.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.springBoot.entitry.AuthorSettings;
 
 /** 
 * @ClassName: Ch6Applcation 
@@ -21,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 */
 
 @Controller
-@RequestMapping(path="/book/")
 public class Ch6Applcation {
 	
 	@Value("${book.author}")
@@ -29,12 +32,28 @@ public class Ch6Applcation {
 	@Value("${book.name}")
 	private  String bookName;
 	
-	@RequestMapping(path="bookinfo")
+	@Autowired
+	private  AuthorSettings authorSettings;
+	
+	@Autowired
+	private  Environment env;
+	
+	@RequestMapping(value="/bookinfo")
 	public  String index(){
 		return  bookAuthor + bookName;
 	}
 	
 	
+	@RequestMapping(value="/env")
+	public  String env(){
+		return  env.getProperty("book.author");
+	}
+	
+	
+	@RequestMapping(value="/authorSettings")
+	public  String authorSettings(){
+		return  authorSettings.getName()+authorSettings.getAge();
+	}
 	
 
 }

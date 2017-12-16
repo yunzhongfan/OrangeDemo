@@ -1,0 +1,32 @@
+server:
+  port: 8081
+  context-path: /demo61
+  
+book:
+  author: "葛一鸣"
+  name: "springBoot实战"
+
+spring:
+  datasource:
+    tomcat:
+      data-source: jdbc:mysql://127.0.0.1:3306/test
+      max-active: 50
+      test-on-connect: true
+      max-idle: 5
+      initial-size: 15
+      max-wait: 30000
+      test-on-return: true
+      test-while-idle: true
+
+
+  profiles:
+    active: "test"
+    
+logging:
+  file: "D:/log.log"
+    
+      
+
+      
+      
+        

@@ -1,7 +1,11 @@
 server:
   port: 8081
-  servlet-path: /demo6
+  context-path: /demo61
   
+book:
+  author: "葛一鸣test"
+  name: "springBoot实战test"
+
 spring:
   datasource:
     tomcat:
@@ -13,6 +17,9 @@ spring:
       max-wait: 30000
       test-on-return: true
       test-while-idle: true
+      
+      
+
       
       
         
