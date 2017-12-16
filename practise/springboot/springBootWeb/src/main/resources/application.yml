@@ -1,0 +1,12 @@
+spring:
+  mvc:
+    view:
+      prefix: /WBE-INF/
+      suffix: .jsp
+    static-path-pattern: 
+
+server:
+  context-path: /web
+  port: 8082
+  
+  
