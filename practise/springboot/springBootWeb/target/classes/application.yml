@@ -1,12 +1,33 @@
 spring:
   mvc:
     view:
-      prefix: /WBE-INF/
+      prefix: /WBE-INF/view
       suffix: .jsp
-    static-path-pattern: 
+    static-path-pattern: /assets
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: medlink
+    driver-class-name: com.mysql.jdbc.Driver
+jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+     
+      
+    
 
 server:
   context-path: /web
   port: 8082
-  
+  session:
+    timeout: 30000
+  tomcat:
+    uri-encoding: UTF-8
+
+    
+    
+ 
+
+
   

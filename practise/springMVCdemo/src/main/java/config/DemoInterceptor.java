@@ -38,4 +38,8 @@ public class DemoInterceptor extends HandlerInterceptorAdapter {
 		System.out.println("本次请求处理时间为："+(entTime-stratTime));
 		request.setAttribute("handleTime", (entTime-stratTime));
 	}
+	
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
+        System.out.println("afterCompletion");
+    }
 }

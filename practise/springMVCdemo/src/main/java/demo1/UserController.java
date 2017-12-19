@@ -42,4 +42,19 @@ public class UserController {
 		return mav;
 	}
 
+	/**
+	 * 测试参数异常的全局处理
+	* @Title: showException 
+	* @Description: TODO
+	* @param @param exception
+	* @param @return   
+	* @return ModelAndView   
+	* @throws
+	 */
+	@RequestMapping("/exception/{exception}")
+	public ModelAndView showException(@PathVariable("exception") String exception) {
+		throw new IllegalArgumentException("抱歉，参数异常/ 来自@ModelAttribute:" + exception);
+		
+	}
+
 }

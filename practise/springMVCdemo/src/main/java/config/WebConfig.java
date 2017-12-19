@@ -13,6 +13,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 /**
  * 
 * @ClassName: MyMVConfig 
+* 
+* http://blog.csdn.net/u012702547/article/details/53674867
+* 参考：http://blog.csdn.net/u012702547/article/details/53695789
 * @Description: 基于Java注解的方式配置MVC
 * @author nbc
 * @date 2017年12月5日 下午3:25:47 
