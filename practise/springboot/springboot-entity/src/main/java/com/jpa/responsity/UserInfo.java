@@ -6,13 +6,13 @@
 * @date 2017年12月19日 下午4:07:18 
 * @version V1.0
 */
-package com.springboot.responsity;
+package com.jpa.responsity;
 
 import java.io.Serializable;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.springboot.entity.User;
+import com.jpa.entity.User;
 
 /** 
 * @ClassName: UserInfo 

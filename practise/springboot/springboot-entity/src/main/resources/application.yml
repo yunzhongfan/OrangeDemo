@@ -8,3 +8,11 @@ jpa:
     hibernate:
       ddl-auto: create
     show-sql: true
+    
+book: 
+  bookName: "springboot开发颠覆者"
+  price: 76
+  
+mybatis:
+  config-location: classpath*:mybatis/*Mapper.xml
+  type-aliases-package: com.forezp.entity

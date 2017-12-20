@@ -9,10 +9,11 @@ spring:
     username: root
     password: medlink
     driver-class-name: com.mysql.jdbc.Driver
-jpa:
+  jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
+      
      
       
     

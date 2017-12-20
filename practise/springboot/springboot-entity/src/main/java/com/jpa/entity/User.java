@@ -6,7 +6,7 @@
 * @date 2017年12月19日 下午4:05:36 
 * @version V1.0
 */
-package com.springboot.entity;
+package com.jpa.entity;
 
 import java.io.Serializable;
 

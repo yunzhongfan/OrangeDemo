@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.springboot.entity.User;
-import com.springboot.responsity.UserInfo;
+import com.example.service.Userservice;
+import com.jpa.entity.User;
+import com.utils.BookProperties;
 
 /**
  * @ClassName: UserController
@@ -30,16 +31,12 @@ import com.springboot.responsity.UserInfo;
 public class UserController {
 
 	@Autowired
-	private UserInfo userInfo;
+	private Userservice userservice;
 
 	@ResponseBody
 	@RequestMapping(path = "getuser", method = RequestMethod.GET)
 	public User getUser() throws InstantiationException, IllegalAccessException {
-		User user = User.class.newInstance();
-		user.setAge(23);
-		user.setName("张三");
-		user.setPassWord("12345");
-		return user;
+		return userservice.getUser();
 	}
 
 	@RequestMapping(path = "info", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -59,14 +56,20 @@ public class UserController {
 			user.setAge(24);
 			user.setName("张四");
 			user.setPassWord("4");
-			user = userInfo.saveAndFlush(user);
+			user = userservice.saveUser(user);
 			return user;
 		}catch(Exception e){
 			e.printStackTrace();
 //			throw new IllegalArgumentException("抱歉，参数异常/ 来自@ModelAttribute:");
-			
 		}
 		return user;
+	}
+	
+	@ResponseBody
+	@RequestMapping(path = "userBook", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public BookProperties getUserBook() {
+			BookProperties bookProperties = userservice.getUserBook();
+			return bookProperties;
 	}
 
 }
