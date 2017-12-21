@@ -3,7 +3,11 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 server:
-  port: 8762
+  port: 8765
 spring:
   application:
-    name: service-hi
+    name: service-feign
+    
+    
+#打开断路器
+feign.hystrix.enabled: true
