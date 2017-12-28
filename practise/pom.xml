@@ -22,8 +22,9 @@
 	<modules>
 		<module>javademo</module>
 	  	<module>springMVCdemo</module>
-		<module>activemqDemo</module>
-  </modules>
+        <module>activemqDemo</module>
+
+    </modules>
 
 
 	<artifactId>orange</artifactId>
