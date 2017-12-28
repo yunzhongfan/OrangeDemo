@@ -14,43 +14,46 @@ import javax.jms.*;
  **/
 public class QueueProvide {
 
-    /**
-     *
-     *
-     **/
-    final static private String URL = "http://127.0.0.1:86861";
+    /** 指定ActiveMQ服务的地址 */
+    private static final String URL = "tcp://127.0.0.1:61616";
+    /** 指定队列的名称 */
+    private static final String QUEUE_NAME = "queue-test";
 
-    final static private String QUEUE_NAME = "queue_test";
+    public static void main(String[] args) throws JMSException {
 
-
-    public static void main(String[] args) {
-       /* 1.创建ConnectionFactory */
+        // 1.创建ConnectionFactory
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(URL);
 
+        // 2.创建Connection
+        Connection connection = connectionFactory.createConnection();
 
-        try {
-            //创建连接
-            Connection connection = connectionFactory.createConnection();
-            connection.start();
-            // 4.创建会话（第一个参数：是否在事务中处理）
-            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            //创建一个目的地
-            Destination destination = session.createQueue(QUEUE_NAME);
-            // 6.创建一个生产者
-            MessageProducer producer = session.createProducer(destination);
+        // 3.启动连接
+        connection.start();
 
-            for (int i = 0; i < 100; i++) {
-                TextMessage message = session.createTextMessage("消息" + i);
-                producer.send(message);
-                System.out.println("消息" + i + "发送完毕");
-            }
+        // 4.创建会话（第一个参数：是否在事务中处理）
+        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-            connection.close();
-        } catch (JMSException e) {
-            e.printStackTrace();
+        // 5. 创建一个目标
+        Destination destination = session.createQueue(QUEUE_NAME);
+
+        // 6.创建一个生产者
+
+        MessageProducer producer = session.createProducer(destination);
+
+
+        for (int i = 0; i < 100; i++) {
+
+            // 7.创建消息
+            TextMessage textMessage = session.createTextMessage("test" + i);
+
+            // 8.发布消息
+            producer.send(textMessage);
+
+            System.out.println("消息发送：" + textMessage.getText());
         }
 
-
+        // 9.关闭连接
+        connection.close();
     }
 
 

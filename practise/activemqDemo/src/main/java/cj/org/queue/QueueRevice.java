@@ -13,9 +13,9 @@ public class QueueRevice {
      *
      *
      **/
-    final static private String URL = "http://127.0.0.1:86861";
-
-    final static private String QUEUE_NAME = "queue_test";
+    private static final String URL = "tcp://127.0.0.1:61616";
+    /** 指定队列的名称 */
+    private static final String QUEUE_NAME = "queue-test";
 
 
     public static void main(String[] args) {
