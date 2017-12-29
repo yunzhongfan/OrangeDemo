@@ -16,7 +16,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring-framework.version>4.3.7.RELEASE</spring-framework.version>
-		<project.build.jdk>1.7</project.build.jdk>
+		<project.build.jdk>1.8</project.build.jdk>
 
 	</properties>
 	<modules>
